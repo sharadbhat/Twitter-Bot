@@ -22,9 +22,10 @@ def downloadImage():
             f = open('image.jpg','wb')
             f.write(requests.get('https://unsplash.it/1920/1080/?random').content)
             f.close()
+            print("Download done.", end="\r")
             break
         except:
-            print("Retrying downloading")
+            print("Retrying downloading", end="\r")
             time.sleep(2 * 60)
 
 
@@ -33,11 +34,11 @@ def uploadImage(count):
     try:
         now2 = datetime.datetime.now()
         twitterAPI.update_with_media("image.jpg", status=("Wallpaper #" + str(count)))
-        print("Last image uploaded at " + str(now2.hour) + ":" + str(now2.minute))
+        print("Last image uploaded at " + str(now2.hour) + ":" + str(now2.minute), end="\r")
         os.remove("image.jpg")
         time.sleep(120)
     except:
-        print("Retrying uploading")
+        print("Retrying uploading", end="\r")
         time.sleep(2 * 60)
 
 

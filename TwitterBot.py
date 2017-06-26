@@ -45,7 +45,15 @@ def uploadImage(count):
     log("Image #{} uploaded at {:%H:%M}".format(count, datetime.now()))
 
 
+def delay(hour_delay):
+    now = datetime.now()
+    new_day = now.day + 1 if now.hour >= 20 else now.day
+    new_hour = now.hour + now.hour % hour_delay
+    next_post = now.replace(day=new_day, hour=new_hour, minute=0, second=0)
+    time.sleep((next_post - now).total_seconds())
+
+
 for count in itertools.count(1):
     downloadImage()
-    time.sleep((60 - datetime.now().minute) * 60)
+    delay(4)
     uploadImage(count)

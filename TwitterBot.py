@@ -5,16 +5,16 @@ import time
 import itertools
 import functools
 
-consumerKey = "********"
-consumerSecret = "**********"
+consumer_key = "********"
+consumer_secret = "**********"
 
-accessKey = "*************"
-accessSecret = "**************"
+access_key = "*************"
+access_secret = "**************"
 
-auth = tweepy.OAuthHandler(consumerKey, consumerSecret)
-auth.set_access_token(accessKey, accessSecret)
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_key, access_secret)
 
-twitterAPI = tweepy.API(auth)
+twitter_API = tweepy.API(auth)
 
 log = itertools.partial(print, end="\r")
 
@@ -36,7 +36,7 @@ def downloadImage():
 def uploadImage(count):
     while True
         try:
-            twitterAPI.update_with_media("image.jpg", status="Wallpaper #{}".format(count))
+            twitter_API.update_with_media("image.jpg", status="Wallpaper #{}".format(count))
         except tweepy.TweepError:
             log("Retrying uploading")
             time.sleep(2 * 60)

@@ -5,14 +5,14 @@ import time
 import itertools
 import functools
 
-consumer_key = "********"
-consumer_secret = "**********"
+CONSUMER_KEY = "********"
+CONSUMER_SECRET = "**********"
 
-access_key = "*************"
-access_secret = "**************"
+ACCESS_KEY = "*************"
+ACCESS_SECRET = "**************"
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_key, access_secret)
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 
 twitter_API = tweepy.API(auth)
 

@@ -19,7 +19,7 @@ twitter_API = tweepy.API(auth)
 log = itertools.partial(print, end="\r")
 
 
-def downloadImage():
+def download_image():
     while True:
         try:
             image = requests.get('https://unsplash.it/1920/1080/?random').content
@@ -33,7 +33,7 @@ def downloadImage():
     log("Download done.")
 
 
-def uploadImage(count):
+def upload_image(count):
     while True
         try:
             twitter_API.update_with_media("image.jpg", status="Wallpaper #{}".format(count))
@@ -54,6 +54,6 @@ def delay(hour_delay):
 
 
 for count in itertools.count(1):
-    downloadImage()
+    download_image()
     delay(4)
-    uploadImage(count)
+    upload_image(count)
